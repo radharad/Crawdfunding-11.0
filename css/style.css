@@ -1,0 +1,929 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+  list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+h1.h2,h3,h4,h5,h6{
+    font-weight: 700;
+}
+h2{
+    font-weight: bolder;
+}
+
+:root{
+--black-color:#000000;
+--white-color:#ffffff;
+--main-color:#4D6C1D;
+--supporting-color:#6E9437;
+--nav-color:#66707F;
+--background-color:#f4f6f8;
+}
+
+.button{
+    border: none;
+    background-color: var(--main-color);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    line-height: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    color: var(--white-color);
+    transition:  0.3s linear;
+    cursor: pointer;
+    line-height: 17px;
+}
+.button:hover{
+    background-color: var(--supporting-color);
+}
+
+/* Nav Section Start */
+
+.small-nav{
+ background-color: var(--main-color);
+ color: var(--white-color);
+ padding: 10px 100px;
+
+ h6{
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+ }
+}
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navigation {
+    height:110px;
+    background-color: var(--white-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.brand {
+    position: absolute;
+    padding-left: 20px;
+    float: left;
+    height: 100px;
+    width: 100px;
+}
+
+nav {
+    float: right;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    float: left;
+    position: relative;
+}
+nav ul li a,nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 55px;
+    color:var(--nav-color);
+    background:var(--white-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -35px;
+    left: 0;
+    background-color:var(--main-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+nav ul li a{
+    color:var(--main-color);
+    font-size:15px;
+    font-weight: 600;
+}
+
+nav ul li a:hover, nav ul li a:visited:hover {
+    background:var(--white-color);
+    color:var(--main-color);
+}
+.nav ul li a:active{
+    color: var(--main-color);
+}
+.navbar-dropdown li a{
+    background:var(--white-color);
+}
+nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
+    padding-left: 4px;
+    content: ' \025BE';
+}
+nav ul li ul li {
+    min-width: 190px;
+}
+nav ul li ul li a {
+    padding: 15px;
+    line-height: 20px;
+}
+.navbar-dropdown {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    background: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    .border-b{
+        border-top: 1px solid var(--nav-color);
+    }
+}
+/* Mobile navigation */
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background:var(--main-color);
+    height: 55px;
+    width: 70px;
+}
+@media only screen and (max-width: 800px) {
+    .nav-mobile {
+        display: block;
+        margin: 20px;
+   }
+    nav {
+        width: 100%;
+        padding: 55px 0 15px;
+   }
+    nav>ul {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+   }
+    nav ul li {
+        float: none;
+   }
+    nav ul li a {
+        padding: 15px;
+        line-height: 20px;
+        background:var(--white-color);
+        color: var(--nav-color);
+   }
+    nav ul li ul li a {
+        padding-left: 30px;
+   }
+    .navbar-dropdown {
+        position: static;
+}
+@media screen and (min-width:800px) {
+    .nav-list {
+        display: block !important;
+   }
+}
+#navbar-toggle {
+    position: absolute;
+    left: 18px;
+    top: 15px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+}
+#navbar-toggle span, #navbar-toggle span:before, #navbar-toggle span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: 30px;
+    background: #ffffff;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+}
+#navbar-toggle span:before {
+    top: -10px;
+}
+#navbar-toggle span:after {
+    bottom: -10px;
+}
+#navbar-toggle.active span {
+    background-color: transparent;
+}
+#navbar-toggle.active span:before, #navbar-toggle.active span:after {
+    top: 0;
+}
+#navbar-toggle.active span:before {
+    transform: rotate(45deg);
+}
+#navbar-toggle.active span:after {
+    transform: rotate(-45deg);
+}
+}
+
+/* Nav Section End */
+
+/* Home Section Start */
+.home-section{
+    position: relative;
+
+    .home-content{
+        color: var(--white-color);
+        padding-top: 150px;
+
+        h2{
+          font-size: 42px;
+          line-height: 62px;
+          font-weight: 700;
+          -webkit-animation:bounce-in-top 3s infinite both;animation:bounce-in-top 3s infinite both
+        }
+
+        p{
+            margin-bottom: 30px;
+        }
+    }
+
+.slick-prev,
+.slick-next{
+    position: absolute;
+    background-color: transparent;
+    color: var(--white-color);
+    border:1px solid var(--white-color);
+    border-radius: 7px;
+    padding:1px;
+    z-index: 90;
+    top: 190px;
+    transition: 0.3s ease-in-out;
+} 
+
+.slick-prev:hover,
+.slick-next:hover{
+    background-color: var(--white-color);
+    color: var(--main-color);
+}
+
+.slick-prev{
+    left: 20px;
+}
+.slick-next{
+    right: 20px;
+}
+
+}
+
+/* @-webkit-keyframes bounce-in-top{0%{-webkit-transform:translateY(-500px);transform:translateY(-500px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;opacity:0}38%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;opacity:1}55%{-webkit-transform:translateY(-65px);transform:translateY(-65px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}72%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}81%{-webkit-transform:translateY(-28px);transform:translateY(-28px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}90%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}95%{-webkit-transform:translateY(-8px);transform:translateY(-8px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}100%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}@keyframes bounce-in-top{0%{-webkit-transform:translateY(-500px);transform:translateY(-500px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;opacity:0}38%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;opacity:1}55%{-webkit-transform:translateY(-65px);transform:translateY(-65px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}72%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}81%{-webkit-transform:translateY(-28px);transform:translateY(-28px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}90%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}95%{-webkit-transform:translateY(-8px);transform:translateY(-8px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}100%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}} */
+
+.home-slider-one{
+background: linear-gradient(rgba(3, 3, 3, 0.2),rgba(15, 15, 15, 0.2)), url('https://www.ameyaworldschool.in/idea/2017/03/kids-hands-holding-plants.jpg');
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: 100% 100%;
+ height: 70vh;
+ -webkit-animation:kenburns-top 5s ease-out infinite both;animation:kenburns-top 5s ease-out infinite both
+}
+.home-slider-two{
+    background: linear-gradient(rgba(3, 3, 3, 0.5),rgba(15, 15, 15, 0.5)), url('https://blog.ipleaders.in/wp-content/uploads/2021/06/child-adoption-india-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height:70vh;
+}
+.home-slider-three{
+    background: linear-gradient(rgba(3, 3, 3, 0.7),rgba(15, 15, 15, 0.7)), url('https://www.backabuddy.co.za/news/wp-content/uploads/2022/05/Untitled-design-41-1080x675.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height:70vh;
+   }
+
+
+/* Home Section End */
+
+/* Donate Now Section Start */
+
+.donate-now-section{
+    i{
+        font-size: 80px;
+        color: var(--main-color);
+    }
+
+    .donate-info{
+        padding: 20px 0px;
+        border: 1px solid #dee7f2;
+        position: relative;
+
+        a{
+            position: absolute;
+          top:50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+    }
+    .title{
+        color: var(--main-color);
+    }
+    .num-one{
+        color:#1405f5;
+    }
+    .num-two{
+        color:#f51f8a;
+    }
+    .num-one,
+    .num-two{
+        font-size: 32px;
+        font-weight: 600;
+        -webkit-animation:blink-1 2s infinite both;animation:blink-1 2s infinite both
+    }
+
+}
+
+@-webkit-keyframes blink-1{0%,50%,100%{opacity:1}25%,75%{opacity:0}}@keyframes blink-1{0%,50%,100%{opacity:1}25%,75%{opacity:0}}
+
+/* Donate Now Section End */
+
+/* Fundraising Causes Section Start */
+
+.fundraising-causes-section{
+    background: linear-gradient(rgba(3, 3, 3, 0.5),rgba(15, 15, 15, 0.5)), url('https://img.freepik.com/free-photo/couple-holding-hands-green-meadow_1150-26188.jpg');
+    padding:100px 0px 200px 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    color: var(--white-color);
+    text-align: center;
+    height: 500px;
+  
+  .fundraising-slider{
+    margin-top: 100px;
+
+    img{
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+    img:hover{
+       transform: translateY(-10px);
+    }
+  }
+}
+
+
+
+/* Fundraising Causes Section End */
+
+/* Crowdfunding Section Start */
+
+.crowdfunding-section{
+    margin: 100px 0px;
+    text-align: center;
+
+    .crowdfunding-card{
+        padding: 40px;
+        border: 1px solid #dee4ee;
+        position: relative;
+    }
+    p{
+        color: var(--main-color);
+    }
+    h5{
+        margin: 30px 0px 10px 0px;
+    }
+    .num{
+        background-color: var(--main-color);
+        color: var(--white-color);
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-weight:600;
+        position: absolute;
+        left: 40%;
+        top: -40px;
+       }
+    .row{
+        margin-top: 100px;
+    }
+}
+
+/* Crowdfunding Section End */
+
+/* donate receive section start */
+
+.donate-receive-section{
+    background: linear-gradient(rgba(3, 3, 3, 0.8),rgba(15, 15, 15, 0.8)), url('https://fleximize.com/proxy-image/fit=contain,format=auto,metadata=none,onerror=redirect,quality=90,width=1360/img/_articleBannerImage/charity-limited-company-dk-10_09_19_weGa3eGo-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--white-color);
+    padding: 50px 0px;
+    text-align: justify;
+
+    iframe{
+        width: 100%;
+    }
+    .row{
+     margin-top: 100px;
+    }
+
+        .video-area{
+            background-image: url('https://www.ameyaworldschool.in/idea/2017/03/kids-hands-holding-plants.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            padding: 200px 0;          
+         
+            a.play-btn {
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                background: #fff;
+                color:var(--main-color);
+                border-radius: 50%;
+                line-height: 70px;
+                font-size: 20px;
+                position: absolute;
+                left: 0;
+                top:0;
+                text-align: center;
+            }
+            
+            .ripple {
+                position: relative;
+                text-decoration: none;
+                color: #fff;
+                width: 70px;
+                height: 70px;
+                background-color:var(--main-color);
+                margin: 0 auto;
+                border-radius: 50%;
+                -webkit-animation: ripple 1s linear infinite;
+                animation: ripple 1s linear infinite;
+            }
+            
+        }
+
+}
+
+@keyframes ripple {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(142, 210, 165, 0.3), 0 0 0 10px rgba(142, 210, 165, 0.3), 0 0 0 30px rgba(142, 210, 165, 0.3), 0 0 0 60px rgba(142, 210, 165, 0.3);
+              box-shadow: 0 0 0 0 rgba(142, 210, 165, 0.3), 0 0 0 10px rgba(142, 210, 165, 0.3), 0 0 0 30px rgba(142, 210, 165, 0.3), 0 0 0 60px rgba(142, 210, 165, 0.3);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 10px rgba(142, 210, 165, 0.3), 0 0 0 30px rgba(142, 210, 165, 0.3), 0 0 0 60px rgba(142, 210, 165, 0.3), 0 0 0 90px rgba(189, 142, 210, 0);
+              box-shadow: 0 0 0 10px rgba(142, 210, 165, 0.3), 0 0 0 30px rgba(142, 210, 165, 0.3), 0 0 0 60px rgba(142, 210, 165, 0.3), 0 0 0 90px rgba(189, 142, 210, 0);
+    }
+  }
+    
+
+/* donate receive section end */
+
+/* Successful Compaigns Section Start */
+
+.successful-compaigns-section{
+    background-color:var(--background-color);
+    padding:80px 0px;
+
+    .text-center{
+        margin-bottom: 50px;
+    }
+
+    .successful-compaigns-card{
+        background-color: var(--white-color);
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        height: 550px;
+       
+        .card-info{
+            padding: 20px;
+
+            h1{
+                color: #3c4d6b;
+            }
+        }
+        .d-flex{
+            color: var(--main-color);
+            font-size: 15px;
+        }
+
+        .progress{
+            margin: 20px 0px;
+        }
+        p{
+            margin-top: 10px;
+        }
+
+        img{
+            width: 416px;
+            height: 277px;
+        }
+
+        a{
+            color: #1405f5;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+    }
+
+
+}
+
+/* Successful Compaigns Section End */
+
+/* Footer Section Start */
+
+.footer-section{
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 50px 0px 20px 0px;
+    font-weight: 500;
+
+    .border-b{
+        border-bottom: 1px solid var(--white-color);
+        margin: 50px 0px 10px 0px;
+    }
+
+
+    h5{
+        margin-bottom: 30px;
+    }
+
+    p{
+        font-weight: 500;
+    }
+
+    i{
+        padding-right: 10px;
+    }
+    li{
+        margin-bottom: 10px;
+    }
+    .logo{
+        margin-bottom: 30px;
+    }
+    p{
+        padding-right: 50px;
+    }
+    .fa-location-dot,
+    .fa-envelope,
+    .fa-phone{
+        background-color: var(--white-color);
+        color: var(--main-color);
+        padding: 10px;
+        border-radius: 50%;
+        height: 35px;
+        width: 35px;
+        margin-right: 10px;
+    }
+
+}
+
+/* Footer Section End */
+
+/* Fundraise Section Start */
+
+.fundraise-section{
+    background: linear-gradient(rgba(3, 3, 3, 0.6),rgba(15, 15, 15, 0.6)), url('https://bsmedia.business-standard.com/_media/bs/img/article/2017-11/23/full/1511383713-832.jpg?im=FeatureCrop,size=(826,465)');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:100% 100%;
+    padding: 100px 0px;
+
+    p{
+        color: var(--main-color);
+    }
+
+    form{
+        background-color: var(--white-color);
+        border-radius: 4px;
+        padding: 50px;
+
+        .warning{
+            color: red;
+        }
+    }
+
+  .form-control{
+    padding: 6px 16px;
+    height: 52px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 14px;
+    color:var(--nav-color);
+    border-radius: 3px; 
+    margin-bottom: 10px;
+    border: 2px solid #e6ecef;
+    }
+}
+
+/* Fundraise Section End */
+
+/* Donate Section Start */
+
+.donate-section{
+    background: linear-gradient(rgba(3, 3, 3, 0.6),rgba(15, 15, 15, 0.6)), url('https://loveincnewaygo.com/wp-content/uploads/2022/05/Donate_AdobeStock_123977324.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:100% 100%;
+    padding-top: 200px;
+    padding-bottom: 50px;
+
+    h1{
+        background-color: var(--white-color);
+        padding: 30px;
+        opacity: 0.5;
+        font-size: 30px;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+}    
+
+/* Donate Section End */
+
+/* About Section Start */
+
+.about-section{
+    background: linear-gradient(rgba(3, 3, 3, 0.6),rgba(15, 15, 15, 0.6)), url('https://startuplive.in/wp-content/uploads/2022/01/About-Us-Banner.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:100% 100%;
+    padding-top: 200px;
+    padding-bottom: 50px;
+
+    .d-flex{
+    background-color: var(--white-color);
+    padding: 30px;
+    opacity: 0.5;
+
+    h1{
+        font-size: 30px;
+        letter-spacing: 1px;
+        font-weight: 600; 
+    }
+    }
+}
+
+.about-page{
+    padding: 50px 0px;
+    background-color: var(--background-color);
+
+    .container{
+        background-color: var(--white-color);
+        padding: 30px;
+    }
+
+    h3{
+        margin-bottom: 30px;
+    }
+    h4{
+        text-align: center;
+    }
+    .paragraph{
+        padding: 0px 220px;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    p{
+        color: var(--main-color);
+        margin: 30px 0px;
+    }
+}
+
+/* About Section End */
+
+/* Contact Section Start */
+
+.contact-section{
+    background: linear-gradient(rgba(3, 3, 3, 0.7),rgba(15, 15, 15, 0.7)), url('https://pbs.twimg.com/media/DeS1aMCWsAAgYTR.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:100% 100%;
+    padding: 100px 0px;
+
+    h1{
+        color: var(--white-color);
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--white-color);
+    }
+
+    p{
+        color: var(--main-color);
+    }
+
+    form{
+        background-color: var(--white-color);
+        border-radius: 4px;
+        padding: 50px;
+
+        .warning{
+            color: red;
+        }
+    }
+
+  .form-control{
+    padding: 6px 16px;
+    height: 52px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 14px;
+    color:var(--nav-color);
+    border-radius: 3px; 
+    margin-bottom: 10px;
+    border: 2px solid #e6ecef;
+    }
+}
+
+/* Contact Section End */
+
+#myBtn i{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+    border: none;
+    color: #fff;
+    background:var(--main-color);
+    padding-left: 10px;
+    height: 60px;
+    width: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .scrolltop{
+    float: right;
+  }
+
+  /* scroll to top button End */
+  
+  /* text selection color start */
+  
+  ::-moz-selection { /* Code for Firefox */
+    background:var(--main-color);
+    color: #fff;
+  }
+  
+  ::selection {
+    background:var(--main-color);
+    color: #fff;
+  }
+  
+  /* text selection color end */
+  
+  /* whatsapp section start */
+    .whatsapp img,
+    .call img{
+      position: fixed;
+      cursor: pointer;
+      bottom:50px;
+      width: 50px;
+      left:20px;
+      right:0;
+      z-index:1000;
+  }
+    .call img{
+        bottom: 103px;
+    }
+    /* whatsapp section end */
+
+/* Mobile Responsiveness Start */
+
+@media only screen and (min-width:200px) and (max-width:767px){
+
+    .home-section{
+      .home-content{
+        padding-top: 100px;
+      
+      h2{
+        font-size: 27px;
+      }
+    }
+
+}
+
+.donate-now-section{
+    .donate-info{
+        border: none;
+        padding: 50px;
+        
+    }
+}
+
+.crowdfunding-section{
+    .crowdfunding-card{
+        margin: 25px 0px;
+    }
+}
+
+.footer-section h5{
+    margin-top: 20px;
+}
+
+.donate-section h1{
+    font-size: 15px;
+}
+
+.about-section .d-flex h1{
+    font-size: 15px;
+}
+
+.about-page .paragraph{
+    padding: 0px;
+}
+
+.about-page .d-flex{
+    flex-wrap: wrap;
+}
+
+.about-page .button{
+    width: 100%;
+}
+.small-nav{
+    padding:10px;
+}
+
+}
+
+/* Mobile Responsiveness End */
+  
+ /* Tab Responsiveness Start */
+  
+ @media only screen and (min-width:768px) and (max-width:1024px){
+
+.donate-now-section{
+    .num-one,.num-two{
+        font-size: 20px;
+    }
+}
+
+.crowdfunding-section{
+    .crowdfunding-card{
+        margin: 25px 0px;
+    }
+
+}
+.footer-section h5{
+    margin-top: 20px;
+}
+.donate-section h1{
+    font-size: 23px;
+}
+
+.about-section .d-flex h1{
+    font-size: 23px;
+}
+.about-page .d-flex{
+    flex-wrap: wrap;
+}
+.about-page .paragraph{
+    padding: 0px;
+}
+ }   
